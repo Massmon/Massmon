@@ -1,0 +1,4 @@
+baseURL = 'https://Massmon.com'
+locale = 'en-us'
+title = 'Massimo Centofanti'
+theme = 'ananke'
