@@ -2,3 +2,6 @@ baseURL = 'https://Massmon..github.io'
 locale = 'en-us'
 title = 'Massimo Centofanti'
 theme = 'ananke'
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
