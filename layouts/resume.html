@@ -1,0 +1,6 @@
+{{ define "main" }}
+<div class="box resume">
+  <div class="boxhead">{{ .Title }} {{ with site.Params.resumePDF }}<a class="headlink" href="{{ . | relURL }}">download PDF &raquo;</a>{{ end }}</div>
+  <div class="boxbody prose">{{ .Content }}</div>
+</div>
+{{ end }}

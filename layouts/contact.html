@@ -1,0 +1,13 @@
+{{ define "main" }}
+<div class="box">
+  <div class="boxhead">{{ .Title }}</div>
+  <div class="boxbody">
+    <div class="prose">{{ .Content }}</div>
+    <table class="contact">
+      {{ with site.Params.email }}<tr><th>Email</th><td><a href="mailto:{{ . }}">{{ . }}</a></td></tr>{{ end }}
+      {{ with site.Params.github }}<tr><th>GitHub</th><td><a href="{{ . }}">{{ strings.TrimPrefix "https://" . }}</a></td></tr>{{ end }}
+      {{ with site.Params.linkedin }}<tr><th>LinkedIn</th><td><a href="{{ . }}">{{ strings.TrimPrefix "https://www." . }}</a></td></tr>{{ end }}
+    </table>
+  </div>
+</div>
+{{ end }}

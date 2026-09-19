@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale | default "en" }}">
+<head>
+  <script>
+    (function () {
+      var t = null;
+      try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (!t) t = window.matchMedia && matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.setAttribute("data-theme", t);
+    })();
+    function toggleTheme() {
+      var t = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", t);
+      try { localStorage.setItem("theme", t); } catch (e) {}
+      setToggleLabel();
+    }
+    function setToggleLabel() {
+      var b = document.getElementById("themetoggle");
+      if (b) b.textContent = document.documentElement.getAttribute("data-theme") === "dark" ? "\u2600 Light mode" : "\u263E Dark mode";
+    }
+    document.addEventListener("DOMContentLoaded", setToggleLabel);
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }} - {{ site.Title }}{{ end }}</title>
+  <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.tagline }}{{ end }}">
+  <link rel="icon" href="{{ "images/nav/4.png" | relURL }}">
+  {{ with resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}">
+  {{ end }}
+</head>
+<body>
+<div id="page">
+  {{ partial "header.html" . }}
+  <div id="content">
+    {{ block "main" . }}{{ end }}
+  </div>
+  {{ partial "footer.html" . }}
+</div>
+</body>
+</html>

@@ -1,7 +1,59 @@
-baseURL = 'https://Massmon..github.io'
-locale = 'en-us'
+baseURL = 'https://massmon.github.io/'
+locale = 'en-US'
+disableKinds = ['taxonomy', 'term', 'rss']
 title = 'Massimo Centofanti'
-theme = 'ananke'
+
+[params]
+  name = 'Massimo Centofanti'
+  tagline = 'Electrical Engineering @ Penn'
+  heroImage = 'images/hero.jpg'
+  footerQuote = 'Work hard, study well, and eat and sleep plenty! That is the Turtle Hermit way! We must master the art of peace in addition to the art of war!'
+  footerQuoteBy = 'Master Roshi'
+
+  # Contact links: fill these in, or delete a line to hide it.
+  email = ''              # e.g. 'you@example.com'
+  github = 'https://github.com/Massmon'
+  linkedin = ''           # e.g. 'https://www.linkedin.com/in/yourname'
+  resumePDF = ''          # e.g. 'files/resume.pdf' (put the PDF in static/files/)
+
+[menus]
+  [[menus.main]]
+    name = 'Blog'
+    pageRef = '/blog'
+    weight = 10
+    [menus.main.params]
+      icon = 'images/nav/1.png'
+  [[menus.main]]
+    name = 'Projects'
+    pageRef = '/projects'
+    weight = 20
+    [menus.main.params]
+      icon = 'images/nav/2.png'
+  [[menus.main]]
+    name = 'Hobbies'
+    pageRef = '/hobbies'
+    weight = 30
+    [menus.main.params]
+      icon = 'images/nav/3.png'
+  [[menus.main]]
+    name = 'Resume'
+    pageRef = '/resume'
+    weight = 40
+    [menus.main.params]
+      icon = 'images/nav/4.png'
+  [[menus.main]]
+    name = 'Contact'
+    pageRef = '/contact'
+    weight = 50
+    [menus.main.params]
+      icon = 'images/nav/5.png'
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.highlight]
+  style = 'dracula'
+
 [caches]
   [caches.images]
     dir = ':cacheDir/images'

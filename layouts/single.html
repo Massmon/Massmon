@@ -1,0 +1,18 @@
+{{ define "main" }}
+<div class="box">
+  <div class="boxhead">{{ .Title }}</div>
+  <div class="boxbody">
+    <p class="small muted">
+      {{ with .Parent }}{{ if not .IsHome }}<a href="{{ .RelPermalink }}">&laquo; Back to {{ .Title }}</a> &middot; {{ end }}{{ end }}
+      Posted {{ .Date.Format "January 2, 2006" }}
+      {{ with .Params.status }} &middot; Status: <b>{{ . }}</b>{{ end }}
+      {{ with .Params.tags }} &middot; Tags: {{ delimit . ", " }}{{ end }}
+    </p>
+    {{ if or .Params.repo .Params.demo }}
+    <p>{{ with .Params.repo }}<a class="button" href="{{ . }}">View Code</a>{{ end }} {{ with .Params.demo }}<a class="button" href="{{ . }}">Live Demo</a>{{ end }}</p>
+    {{ end }}
+    {{ with .Params.image }}<img class="cover" src="{{ . | relURL }}" alt="">{{ end }}
+    <div class="prose">{{ .Content }}</div>
+  </div>
+</div>
+{{ end }}

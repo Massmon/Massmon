@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="twocol">
+  {{ partial "sidebar.html" . }}
+  <div id="main">
+    <div class="box">
+      <div class="boxhead">Welcome!</div>
+      <div class="boxbody prose">{{ .Content }}</div>
+    </div>
+    {{ range slice "blog" "projects" "hobbies" }}
+      {{ with site.GetPage (printf "/%s" .) }}
+      <div class="box">
+        <div class="boxhead">Latest {{ .Title }} <a class="headlink" href="{{ .RelPermalink }}">see all &raquo;</a></div>
+        <div class="boxbody">
+          {{ range first 3 .RegularPages }}{{ partial "entry-row.html" . }}{{ else }}<p class="small muted">Nothing here yet.</p>{{ end }}
+        </div>
+      </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</div>
+{{ end }}

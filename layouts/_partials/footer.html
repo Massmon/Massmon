@@ -1,0 +1,9 @@
+<div id="footer">
+  <p class="footlinks">
+    <a href="{{ "/" | relURL }}">Home</a>
+    {{ range site.Menus.main }} | <a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+    {{ with site.Params.github }} | <a href="{{ . }}">GitHub</a>{{ end }}
+  </p>
+  <p>&copy; {{ now.Year }} {{ site.Params.name }}. Last updated {{ now.Format "January 2, 2006" }}.</p>
+  {{ with site.Params.footerQuote }}<p class="quote">"{{ . }}" - {{ site.Params.footerQuoteBy }}</p>{{ end }}
+</div>

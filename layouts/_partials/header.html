@@ -1,0 +1,15 @@
+<div id="banner" class="{{ if .IsHome }}tall{{ end }}" style="background-image:url('{{ site.Params.heroImage | relURL }}')">
+  <a id="sitename" href="{{ "/" | relURL }}">{{ site.Params.name }}</a>
+  <span id="tagline">{{ site.Params.tagline }}</span>
+  <button id="themetoggle" type="button" onclick="toggleTheme()">Dark mode</button>
+</div>
+<div id="navbar">
+  {{ $current := . }}
+  <a class="navitem {{ if .IsHome }}on{{ end }}" href="{{ "/" | relURL }}"><img src="{{ "images/nav/radar.png" | relURL }}" alt="" width="52" height="52" class="radar"><span>Home</span></a>
+  {{ range site.Menus.main }}
+  <a class="navitem {{ if or ($current.IsMenuCurrent "main" .) ($current.HasMenuCurrent "main" .) }}on{{ end }}" href="{{ .URL }}">
+    {{ with .Params.icon }}<img src="{{ . | relURL }}" alt="" width="52" height="52">{{ end }}
+    <span>{{ .Name }}</span>
+  </a>
+  {{ end }}
+</div>
