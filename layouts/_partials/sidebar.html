@@ -14,6 +14,7 @@
         {{ with site.Params.github }}<li><a href="{{ . }}">GitHub</a></li>{{ end }}
         {{ with site.Params.linkedin }}<li><a href="{{ . }}">LinkedIn</a></li>{{ end }}
         {{ with site.Params.email }}<li><a href="mailto:{{ . }}">Email</a></li>{{ end }}
+        {{ with site.Params.discord }}<li>Discord: {{ . }}</li>{{ end }}
         <li><a href="{{ "contact/" | relURL }}">Contact page</a></li>
       </ul>
     </div>
@@ -23,7 +24,7 @@
     <div class="boxbody small">
       <ul class="plain">
         {{ range slice "blog" "projects" "hobbies" }}{{ with site.GetPage (printf "/%s" .) }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ len .RegularPages }})</li>
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ len .RegularPagesRecursive }})</li>
         {{ end }}{{ end }}
       </ul>
     </div>

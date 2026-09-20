@@ -4,7 +4,7 @@
   <div class="boxbody">
     {{ with .Params.subtitle }}<p class="muted">{{ . }}</p>{{ end }}
     {{ with .Content }}<div class="prose">{{ . }}</div>{{ end }}
-    {{ range .RegularPages }}{{ partial "entry-row.html" . }}{{ else }}<p class="muted">Nothing here yet. Check back soon!</p>{{ end }}
+    {{ range .Pages.ByDate.Reverse }}{{ partial "entry-row.html" . }}{{ else }}<p class="muted">Nothing here yet. Check back soon!</p>{{ end }}
   </div>
 </div>
 {{ end }}

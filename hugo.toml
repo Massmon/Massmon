@@ -11,7 +11,8 @@ title = 'Massimo Centofanti'
   footerQuoteBy = 'Master Roshi'
 
   # Contact links: fill these in, or delete a line to hide it.
-  email = ''              # e.g. 'you@example.com'
+  email = 'centomas@engineering.upenn.edu'
+  discord = 'greatestcenturion'
   github = 'https://github.com/Massmon'
   linkedin = ''           # e.g. 'https://www.linkedin.com/in/yourname'
   resumePDF = ''          # e.g. 'files/resume.pdf' (put the PDF in static/files/)
